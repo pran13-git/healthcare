@@ -17,7 +17,7 @@ function Login() {
   };
 
   const handleRememberMeChange = (event) => {
-    setRememberMe(event.target.checked);+
+    setRememberMe(event.target.checked);
   };
 
   const handleSubmit = (event) => {
