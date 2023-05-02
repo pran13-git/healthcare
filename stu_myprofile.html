@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="student_home.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-tabs">
+            <div class="dashboard-tab"><a href=student_home.html>Home</a></div>
+            <div class="dashboard-tab"><a href=stu_myprofile.html>My profile</a></div>
+            <div class="dashboard-tab"><a href=appt_book.html>Appointment Booking</a></div>
+        </div>
+        <div class="dashboard-content">
+            <h2>My Medical Details</h2>
+            <div class="medical-details">
+                <p><strong>Name:</strong> <span id="name">John Doe</span></p>
+                <p><strong>Email:</strong> <span id="email">john.doe@example.com</span> </p>
+                <p><strong>Phone:</strong> <span id="phone">555-1234</span></p>
+                <p><strong>Allergies:</strong> <span id="allergies">None</span></p>
+                <p><strong>Ongoing Medication:</strong> <span id="medication">Tylenol, 500mg, 2 times a day</span></p>
+                <div class="form-actions hidden">
+                    <button type="button" class="cancel-button">Cancel</button>
+                    <button type="submit" class="save-button">Save Changes</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-container">
+            <ul class="menu-list">
+              <li><a href="#">Upload Medical Reports</a></li>
+              <li><a href="#">Upload prescription</a></li>
+              <li><a href="#">View Appointment History</a></li>
+            </ul>
+          </div>
+          
+    </div>
+    <script src="edit_details.js"></script>
+</body>
+
+</html>

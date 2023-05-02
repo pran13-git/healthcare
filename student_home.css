@@ -1,0 +1,130 @@
+/* Set a background color for the page */
+body {
+  background-color: #f7f7f7;
+}
+
+/* Add a container to hold the dashboard elements */
+.dashboard-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+/* Style the dashboard tabs */
+.dashboard-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.dashboard-tab {
+  padding: 10px 20px;
+  margin-right: 10px;
+  background-color: #eee;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dashboard-tab.active {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Style the dashboard content */
+.dashboard-content {
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+/* Style the form elements */
+.dashboard-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.dashboard-form label {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.dashboard-form input[type="text"],
+.dashboard-form input[type="email"],
+.dashboard-form input[type="password"],
+.dashboard-form select,
+.dashboard-form textarea {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-form input[type="submit"] {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dashboard-form input[type="submit"]:hover {
+  background-color: #0069d9;
+}
+.edit-link {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+  margin-left: 10px;
+}
+
+.form-actions {
+  margin-top: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+.menu-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  background-color: #f8f8f8;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.menu-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.menu-list li {
+  margin: 0 10px;
+}
+
+.menu-list li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.menu-list li a:hover {
+  color: #007bff;
+}
