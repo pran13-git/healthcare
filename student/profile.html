@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -20,6 +23,7 @@
         background-position: center;
         font-family: Arial, sans-serif;
         position: relative;
+        overflow:auto;
       }
 
       /* body::before{
@@ -181,7 +185,7 @@ background-repeat: no-repeat;
       main {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 50px 20px;
+        padding: 20px 20px;
       }
       main h2 {
         font-size: 36px;
@@ -202,7 +206,68 @@ background-repeat: no-repeat;
         display: inline-block;
         margin-top: 20px;
       }
+
+      .container {
+        width: 80%;
+        margin: auto;
+      }
+
+      form {
+        margin-left: 300px;
+      }
+      label {
+        display: block;
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"] {
+        width: 60%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        margin-bottom: 20px;
+        border-width: 1px;
+        border-color: black;
+      }
+
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      button {
+        margin-top: 10px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .edit {
+        background-color: blue;
+        padding: 10px;
+      }
+      .save {
+        background-color: green;
+        display: none;
+      }
+
+      .hidden{
+        display: none;
+      }
     </style>
+    <script src="edit_details.js"></script>
+
   </head>
   <body>
     <div class="hamburger-menu" onclick="toggleMenu()">
@@ -212,9 +277,9 @@ background-repeat: no-repeat;
     </div>
     <div class="menu" id="menu">
       <ul>
-        <li><a href="hamburger.html">Home</a></li>
-        <li><a href="dummy.html">My Profile</a></li>
-        <li><a href="appt.html">Book Appointment</a></li>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="profile.html">My Profile</a></li>
+        <li><a href="stu_appt.html">Book Appointment</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
     </div>
@@ -225,18 +290,60 @@ background-repeat: no-repeat;
         Your source for quality medical care.
       </p>
     </div>
-
- 
       <main>
-          <h2>Welcome to our website!</h2>
-          <p>
-            We are committed to providing our patients with the highest quality
-            medical care. Our team of experienced healthcare professionals is
-            dedicated to helping you and your family stay healthy and happy. From
-            routine check-ups to complex medical procedures, we offer a wide range
-            of services to meet your healthcare needs.
-          </p>
-          <a href="#">Learn more</a>
+        <div class="container mt-5">
+          <h1 class="text-center mb-5" style="text-align: center;font-size: 28px;padding:20px;margin-left: 300px;width: 300px;justify-content: center;">My Profile</h1>
+          <<form style="margin-left: 180px;">
+            <div class="row mb-3">
+              <label for="name">Name:</label>
+              <input
+                type="text"
+                id="name"
+                value="John Doe"
+                disabled
+              />
+            </div>
+            <div class="row mb-3">
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                value="johndoe@example.com"
+                disabled
+              />
+            </div>
+            <div class="row mb-3">
+              <label for="phone">Phone:</label>
+              <input
+                type="tel"
+                id="phone"
+                value="123-456-7890"
+                disabled
+              />
+            </div>
+            <div class="row mb-3">
+              <label for="allergies">Allergies:</label>
+              <input
+                type="text"
+                id="allergies"
+                value="None"
+                disabled
+              />
+            </div>
+            <div class="row mb-3">
+              <label for="medication">Ongoing Medication:</label>
+              <input
+                type="text"
+                id="medication"
+                value="None"
+                disabled
+              />
+            </div>
+            <button type="button" class="edit" id="editBtn">Edit</button>
+            <button type="button" class="save" id="saveBtn">Save</button>
+          </form>
+        </div>
+
       </main>
 
     <script>
@@ -244,6 +351,22 @@ background-repeat: no-repeat;
         document.getElementById("menu").classList.toggle("show");
         document.querySelector(".hamburger-menu").classList.toggle("open");
       }
+
+      editBtn.addEventListener("click", () => {
+        document.querySelectorAll("input").forEach((input) => {
+          input.disabled = false;
+        });
+        editBtn.style.display = "none";
+        saveBtn.style.display = "block";
+      });
+
+      saveBtn.addEventListener("click", () => {
+        document.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        editBtn.style.display = "block";
+        saveBtn.style.display = "none";
+      });
     </script>
   </body>
 </html>
