@@ -1,7 +1,14 @@
 /* Set a background color for the page */
 body {
-  background-color: #f7f7f7;
+  background-color: #ffffff;
   overflow: hidden;
+}
+button{
+  border-radius: 5px;
+  width: 100px;
+  height: 25px;
+  background-color: #0069d9;
+  color: white;
 }
 
 h1 {
@@ -20,9 +27,17 @@ label {
   font-size: 18px;
   margin-bottom: 10px;
   color: #666;
+  display: inline-block;
 }
 
-input[type="text"], input[type="date"], select {
+.hidden {
+  display: none;
+}
+
+
+input[type="text"],
+input[type="date"],
+select {
   padding: 10px;
   border-radius: 5px;
   border: none;
@@ -183,40 +198,39 @@ input[type="submit"]:hover {
   background-color: #ddd;
 }
 
-
 .days {
-    width: 1000px;
-    justify-items: center;
-  }
-  
-  .day {
-    width: 120px;
-    height: 230px;
-    background-color: #efeff6;
-    padding:10px;
-    float:left;
-    margin-right:7px;
-    margin-bottom:5px;
-  }
-  
-  .datelabel {
-    margin-bottom: 15px;
-  }
-  
-  .timeslot {
-    background-color: #00c09d;
-    width: auto;
-    height: 20px;
-    color: white;
-    padding:7px;
-    margin-top: 5px;
-    font-size: 14px;
-    border-radius: 3px;
-    vertical-align: center;
-    text-align:center;
-  }
-  
-  .timeslot:hover { 
-    background-color: #2CA893;
-    cursor: pointer;
-  }
+  width: 1000px;
+  justify-items: center;
+}
+
+.day {
+  width: 120px;
+  height: 230px;
+  background-color: #efeff6;
+  padding: 10px;
+  float: left;
+  margin-right: 7px;
+  margin-bottom: 5px;
+}
+
+.datelabel {
+  margin-bottom: 15px;
+}
+
+.timeslot {
+  background-color: #00c09d;
+  width: auto;
+  height: 20px;
+  color: white;
+  padding: 7px;
+  margin-top: 5px;
+  font-size: 14px;
+  border-radius: 3px;
+  vertical-align: center;
+  text-align: center;
+}
+
+.timeslot:hover {
+  background-color: #2ca893;
+  cursor: pointer;
+}

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hamburger Menu Example</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        /* background-image: linear-gradient(
+            to bottom,
+            rgba(245, 246, 252, 0.52),
+            rgba(245, 4, 4, 0.73)
+          ),
+          url(ssn.jpg); */
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        font-family: Arial, sans-serif;
+        position: relative;
+      }
+
+      /* body::before{
+        content: "";
+        background-image: url(ssn.jpg);
+        background-size: cover;
+background-repeat: no-repeat;
+        background-color: rgba(0,0,0,2.4);
+        
+      } */
+      .hamburger-menu {
+        display: inline-block;
+        cursor: pointer;
+        padding: 20px;
+        position: absolute;
+        z-index: 1;
+        margin: 0px;
+      }
+      .hamburger-menu span {
+        display: block;
+        height: 3px;
+        width: 40px;
+        background-color: #000000;
+        margin-bottom: 5px;
+        margin-top: 8px;
+        position: relative;
+        transform-origin: center;
+        transition: transform 0.3s ease-out, opacity 0.2s;
+      }
+      .hamburger-menu span:nth-child(2) {
+        width: 40px;
+        height: 3px;
+      }
+      .hamburger-menu span:nth-child(3) {
+        width: 40px;
+        height: 3px;
+      }
+      .hamburger-menu.open span:nth-child(1) {
+        transform: translateY(10px) rotate(45deg);
+      }
+      .hamburger-menu.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger-menu.open span:nth-child(3) {
+        transform: translateY(-10px) rotate(-45deg);
+      }
+      .menu {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        width: 300px;
+        height: 100%;
+        background-color: #0a4d68;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+        z-index: 0;
+        transition: left 0.3s ease-out;
+        margin-top: 0px;
+      }
+      .menu ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 100px;
+        margin-left: 10px;
+      }
+      .menu li {
+        padding: 10px;
+        border-bottom: 1px solid #ffffff;
+      }
+      .menu li:hover {
+        background-color: rgb(219, 127, 127);
+      }
+      .menu li:last-child {
+        border-bottom: none;
+      }
+      .menu a {
+        color: #ffffff;
+        text-decoration: none;
+      }
+      .menu.show {
+        left: 0;
+      }
+      .dashboard-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+      }
+
+      /* Style the dashboard tabs */
+      .dashboard-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+        justify-content: center;
+      }
+
+      .dashboard-tab {
+        padding: 10px 20px;
+        margin-right: 10px;
+        background-color: #eee;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .dashboard-tab.active {
+        background-color: #007bff;
+        color: #fff;
+      }
+
+      /* Style the dashboard content */
+      .dashboard-content {
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+      }
+
+      /* Style the form elements */
+      .dashboard-form {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      .dashboard-form label {
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      .dashboard-form input[type="text"],
+      .dashboard-form input[type="email"],
+      .dashboard-form input[type="password"],
+      .dashboard-form select,
+      .dashboard-form textarea {
+        padding: 10px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 4px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .dashboard-form input[type="submit"] {
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .dashboard-form input[type="submit"]:hover {
+        background-color: #0069d9;
+      }
+
+      /* Main content styling */
+      main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 50px 20px;
+      }
+      main h2 {
+        font-size: 36px;
+        margin: 0;
+      }
+      main p {
+        font-size: 18px;
+        margin: 20px 0;
+        line-height: 1.5;
+      }
+      main a {
+        background-color: #42b8dd;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 20px;
+        display: inline-block;
+        margin-top: 20px;
+      }
+
+      .slot {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px 20px;
+  background-color: #eee;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.slot:hover {
+  background-color: #ddd;
+}
+
+.days {
+  margin-left: 200px;
+  width: 1000px;
+  justify-items: center;
+  display: flex;
+  gap: 15px;
+}
+
+.day {
+  width: 180px;
+  height: 330px;
+  background-color: #efeff6;
+  padding: 40px;
+  float: left;
+  margin-right: 7px;
+  margin-bottom: 5px;
+}
+
+.datelabel {
+  margin-bottom: 15px;
+}
+
+.timeslot {
+  background-color: #00c09d;
+  width: auto;
+  height: 20px;
+  color: white;
+  padding: 7px;
+  margin-top: 5px;
+  font-size: 14px;
+  border-radius: 3px;
+  vertical-align: center;
+  text-align: center;
+}
+
+.timeslot:hover {
+  background-color: #2ca893;
+  cursor: pointer;
+}
+
+label {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #666;
+  display: block;
+}
+
+input[type="text"],
+input[type="date"],
+#reason,
+select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #cccccc;
+  margin-bottom: 20px;
+  width: 50%;
+}
+
+input[type="submit"] {
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+form{
+  display:flex;
+  flex-direction: column;
+}
+
+/*radio buttons styling*/
+
+.days label {
+  flex: 1 1 auto;
+  cursor: pointer;
+}
+
+.days span {
+  background-color: #2ca893;
+  padding: 10px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  color: white;
+  border-radius: 10px;
+}
+
+.days input {
+  display: none;
+}
+
+.days input:checked + span {
+  background-color: blue;
+  color: white;
+}
+    </style>
+  </head>
+  <body>
+    <div class="hamburger-menu" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="menu" id="menu">
+      <ul>
+        <li><a href="hamburger.html">Home</a></li>
+        <li><a href="dummy.html">My Profile</a></li>
+        <li><a href="appt.html">Book Appointment</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div style="box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1)">
+      <h1 style="text-align: center">SSN Student Healthcare</h1>
+      <p style="text-align: center; padding-bottom: 10px">
+        Your source for quality medical care.
+      </p>
+    </div>
+
+ 
+      <main>
+        <form>
+        <div style="width: 50%;">
+            <div class="days">
+                <div class="day">
+                  <div class="datelabel"><strong>Friday</strong><br />August 23</div>
+                  <label for="slot-1">
+                    <input type="radio" id="slot-1" name="slot" value="1" />
+                    <span>9:30AM</span>
+                  </label>
+                  <label for="slot-2">
+                    <input type="radio" id="slot-2" name="slot" value="2" />
+                    <span>10:00AM</span>
+                  </label>
+                  <label for="slot-3">
+                    <input type="radio" id="slot-3" name="slot" value="3" />
+                    <span>10:30AM</span>
+                  </label>
+                  <label for="slot-4">
+                    <input type="radio" id="slot-4" name="slot" value="4" />
+                    <span>11:00AM</span>
+                  </label>
+                </div>
+                <div class="day">
+                    <div class="datelabel"><strong>Saturday</strong><br />August 24</div>
+                    <label for="slot-5">
+                      <input type="radio" id="slot-5" name="slot" value="5" />
+                      <span>4:00PM</span>
+                    </label>
+                </div>
+                <div class="day">
+                    <div class="datelabel"><strong>Sunday</strong><br />August 25</div>
+                    <label for="slot-6">
+                      <input type="radio" id="slot-6" name="slot" value="6" />
+                      <span>9:00AM</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="reason" style="margin-left:100px;padding:100px;padding-top: 0px;">
+          <label for="reason">Reason for Appointment:</label>
+            <textarea id="reason" name="reason" rows="4" cols="50"  required></textarea><br>
+            <input type="submit" value="Book Appointment">
+        </div>
+        </form>
+      </main>
+
+    <script>
+      function toggleMenu() {
+        document.getElementById("menu").classList.toggle("show");
+        document.querySelector(".hamburger-menu").classList.toggle("open");
+      }
+    </script>
+  </body>
+</html>

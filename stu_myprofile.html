@@ -1,43 +1,111 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <title>Student Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="student_home.css">
-</head>
-
-<body>
-    <div class="dashboard-container">
-        <div class="dashboard-tabs">
-            <div class="dashboard-tab"><a href=student_home.html>Home</a></div>
-            <div class="dashboard-tab"><a href=stu_myprofile.html>My profile</a></div>
-            <div class="dashboard-tab"><a href=appt_book.html>Appointment Booking</a></div>
+  <head>
+    <title>My Profile</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      label {
+        display: inline-block;
+        width: 100px;
+      }
+      input[type="text"],
+      input[type="tel"],
+      input[type="email"] {
+        width: 300px;
+      }
+      button {
+        margin-top: 10px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .edit {
+        background-color: blue;
+      }
+      .save {
+        background-color: green;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="text-center mb-5">My Profile</h1>
+      <form style="margin-left: 180px;">
+        <div class="row mb-3">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            value="John Doe"
+            disabled
+          />
         </div>
-        <div class="dashboard-content">
-            <h2>My Medical Details</h2>
-            <div class="medical-details">
-                <p><strong>Name:</strong> <span id="name">John Doe</span></p>
-                <p><strong>Email:</strong> <span id="email">john.doe@example.com</span> </p>
-                <p><strong>Phone:</strong> <span id="phone">555-1234</span></p>
-                <p><strong>Allergies:</strong> <span id="allergies">None</span></p>
-                <p><strong>Ongoing Medication:</strong> <span id="medication">Tylenol, 500mg, 2 times a day</span></p>
-                <div class="form-actions hidden">
-                    <button type="button" class="cancel-button">Cancel</button>
-                    <button type="submit" class="save-button">Save Changes</button>
-                </div>
-            </div>
+        <div class="row mb-3">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            value="johndoe@example.com"
+            disabled
+          />
         </div>
-
-        <div class="menu-container">
-            <ul class="menu-list">
-              <li><a href="#">Upload Medical Reports</a></li>
-              <li><a href="#">Upload prescription</a></li>
-              <li><a href="#">View Appointment History</a></li>
-            </ul>
-          </div>
-          
+        <div class="row mb-3">
+          <label for="phone">Phone:</label>
+          <input
+            type="tel"
+            id="phone"
+            value="123-456-7890"
+            disabled
+          />
+        </div>
+        <div class="row mb-3">
+          <label for="allergies">Allergies:</label>
+          <input
+            type="text"
+            id="allergies"
+            value="None"
+            disabled
+          />
+        </div>
+        <div class="row mb-3">
+          <label for="medication">Ongoing Medication:</label>
+          <input
+            type="text"
+            id="medication"
+            value="None"
+            disabled
+          />
+        </div>
+        <button type="button" class="edit" id="editBtn">Edit</button>
+        <button type="button" class="save" id="saveBtn">Save</button>
+      </form>
     </div>
-    <script src="edit_details.js"></script>
-</body>
 
+    <script>
+      const editBtn = document.querySelector("#editBtn");
+      const saveBtn = document.querySelector("#saveBtn");
+
+      editBtn.addEventListener("click", () => {
+        document.querySelectorAll("input").forEach((input) => {
+          input.disabled = false;
+        });
+        editBtn.style.display = "none";
+        saveBtn.style.display = "block";
+      });
+
+      saveBtn.addEventListener("click", () => {
+        document.querySelectorAll("input").forEach((input) => {
+          input.disabled = true;
+        });
+        editBtn.style.display = "block";
+        saveBtn.style.display = "none";
+      });
+    </script>
+  </body>
 </html>

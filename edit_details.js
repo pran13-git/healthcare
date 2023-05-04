@@ -3,7 +3,7 @@ const medicalDetails = document.querySelector('.medical-details');
 
 // Create the edit button
 const editButton = document.createElement('button');
-editButton.innerHTML = '<i class="fa fa-pencil"></i> Edit';
+editButton.innerHTML = '<i class="pencil"></i> Edit';
 editButton.classList.add('edit-button');
 medicalDetails.appendChild(editButton);
 
@@ -32,9 +32,12 @@ editButton.addEventListener('click', () => {
 
   // Create the save button
   const saveButton = document.createElement('button');
-  saveButton.innerHTML = '<i class="fa fa-save"></i> Save';
+  saveButton.innerHTML = '<i class="save"></i> Save';
   saveButton.classList.add('save-button');
   medicalDetails.appendChild(saveButton);
+
+  // Hide the edit button
+  editButton.classList.add('hidden');
 
   // Listen for clicks on the save button
   saveButton.addEventListener('click', () => {
@@ -54,6 +57,9 @@ editButton.addEventListener('click', () => {
 
     // Remove the save button
     saveButton.remove();
+
+    // Show the edit button
+    editButton.classList.remove('hidden');
   });
 });
 
