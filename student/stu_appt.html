@@ -22,6 +22,13 @@
         position: relative;
       }
 
+      p {
+        text-align: center;
+        font-size: 22px;
+        font-stretch: expanded;
+        font-weight: 700;
+      }
+
       /* body::before{
         content: "";
         background-image: url(ssn.jpg);
@@ -87,6 +94,7 @@ background-repeat: no-repeat;
       .menu li {
         padding: 10px;
         border-bottom: 1px solid #ffffff;
+        font-size: 18px;
       }
       .menu li:hover {
         background-color: rgb(219, 127, 127);
@@ -101,81 +109,7 @@ background-repeat: no-repeat;
       .menu.show {
         left: 0;
       }
-      .dashboard-container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #fff;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-        border-radius: 4px;
-      }
 
-      /* Style the dashboard tabs */
-      .dashboard-tabs {
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom: 20px;
-        justify-content: center;
-      }
-
-      .dashboard-tab {
-        padding: 10px 20px;
-        margin-right: 10px;
-        background-color: #eee;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-
-      .dashboard-tab.active {
-        background-color: #007bff;
-        color: #fff;
-      }
-
-      /* Style the dashboard content */
-      .dashboard-content {
-        padding: 20px;
-        background-color: #fff;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-        border-radius: 4px;
-      }
-
-      /* Style the form elements */
-      .dashboard-form {
-        display: flex;
-        flex-direction: column;
-        max-width: 400px;
-        margin: 0 auto;
-      }
-
-      .dashboard-form label {
-        margin-bottom: 10px;
-        font-weight: bold;
-      }
-
-      .dashboard-form input[type="text"],
-      .dashboard-form input[type="email"],
-      .dashboard-form input[type="password"],
-      .dashboard-form select,
-      .dashboard-form textarea {
-        padding: 10px;
-        margin-bottom: 20px;
-        border: none;
-        border-radius: 4px;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-      }
-
-      .dashboard-form input[type="submit"] {
-        padding: 10px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-
-      .dashboard-form input[type="submit"]:hover {
-        background-color: #0069d9;
-      }
 
       /* Main content styling */
       main {
@@ -188,9 +122,11 @@ background-repeat: no-repeat;
         margin: 0;
       }
       main p {
-        font-size: 18px;
-        margin: 20px 0;
-        line-height: 1.5;
+        text-align: center;
+        font-size: 22px;
+        font-stretch: expanded;
+        font-weight: 400;
+        padding-bottom: 20px;
       }
       main a {
         background-color: #42b8dd;
@@ -204,121 +140,123 @@ background-repeat: no-repeat;
       }
 
       .slot {
-  display: inline-block;
-  margin: 5px;
-  padding: 10px 20px;
-  background-color: #eee;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+        display: inline-block;
+        margin: 5px;
+        padding: 10px 20px;
+        background-color: #eee;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
 
-.slot:hover {
-  background-color: #ddd;
-}
+      .slot:hover {
+        background-color: #ddd;
+      }
 
-.days {
-  margin-left: 200px;
-  width: 1000px;
-  justify-items: center;
-  display: flex;
-  gap: 15px;
-}
+      .days {
+        margin-left: 200px;
+        width: 1000px;
+        justify-items: center;
+        display: flex;
+        gap: 15px;
+      }
 
-.day {
-  width: 180px;
-  height: 330px;
-  background-color: #efeff6;
-  padding: 40px;
-  float: left;
-  margin-right: 7px;
-  margin-bottom: 5px;
-}
+      .day {
+        width: 180px;
+        height: 330px;
+        background-color: #efeff6;
+        padding: 40px;
+        float: left;
+        margin-right: 7px;
+        margin-bottom: 5px;
+        border-radius: 10px;
+      }
 
-.datelabel {
-  margin-bottom: 15px;
-}
+      .datelabel {
+        margin-bottom: 15px;
+      }
 
-.timeslot {
-  background-color: #00c09d;
-  width: auto;
-  height: 20px;
-  color: white;
-  padding: 7px;
-  margin-top: 5px;
-  font-size: 14px;
-  border-radius: 3px;
-  vertical-align: center;
-  text-align: center;
-}
+      .timeslot {
+        background-color: #00c09d;
+        width: auto;
+        height: 20px;
+        color: white;
+        padding: 7px;
+        margin-top: 5px;
+        font-size: 14px;
+        border-radius: 3px;
+        vertical-align: center;
+        text-align: center;
+      }
 
-.timeslot:hover {
-  background-color: #2ca893;
-  cursor: pointer;
-}
+      .timeslot:hover {
+        background-color: #2ca893;
+        cursor: pointer;
+      }
 
-label {
-  font-size: 18px;
-  margin-bottom: 10px;
-  color: #666;
-  display: block;
-}
+      label {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #666;
+        display: block;
+      }
 
-input[type="text"],
-input[type="date"],
-#reason,
-select {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #cccccc;
-  margin-bottom: 20px;
-  width: 50%;
-}
+      input[type="text"],
+      input[type="date"],
+      #reason,
+      select {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #cccccc;
+        margin-bottom: 20px;
+        width: 50%;
+      }
 
-input[type="submit"] {
-  background-color: #4caf50;
-  color: #fff;
-  cursor: pointer;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-  transition: background-color 0.3s ease;
-}
-input[type="submit"]:hover {
-  background-color: #3e8e41;
-}
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        cursor: pointer;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        transition: background-color 0.3s ease;
+        margin: 0 auto;
+      }
+      input[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
 
-form{
-  display:flex;
-  flex-direction: column;
-}
+      form {
+        display: flex;
+        flex-direction: column;
+      }
 
-/*radio buttons styling*/
+      /*radio buttons styling*/
 
-.days label {
-  flex: 1 1 auto;
-  cursor: pointer;
-}
+      .days label {
+        flex: 1 1 auto;
+        cursor: pointer;
+      }
 
-.days span {
-  background-color: #2ca893;
-  padding: 10px;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  color: white;
-  border-radius: 10px;
-}
+      .days span {
+        background-color: #2ca893;
+        padding: 10px;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        color: white;
+        border-radius: 10px;
+      }
 
-.days input {
-  display: none;
-}
+      .days input {
+        display: none;
+      }
 
-.days input:checked + span {
-  background-color: blue;
-  color: white;
-}
+      .days input:checked + span {
+        background-color: rgb(63, 63, 225);
+        color: white;
+      }
     </style>
   </head>
   <body>
@@ -332,7 +270,8 @@ form{
         <li><a href="home.html">Home</a></li>
         <li><a href="profile.html">My Profile</a></li>
         <li><a href="stu_appt.html">Book Appointment</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="upload_pre.html">Upload Prescription</a></li>
+        <li><a href="#">Upload Lab Reports</a></li>
       </ul>
     </div>
 
@@ -343,55 +282,87 @@ form{
       </p>
     </div>
 
- 
-      <main>
-        <form>
-        <div style="width: 50%;">
-            <div class="days">
-                <div class="day">
-                  <div class="datelabel"><strong>Friday</strong><br />August 23</div>
-                  <label for="slot-1">
-                    <input type="radio" id="slot-1" name="slot" value="1" />
-                    <span>9:30AM</span>
-                  </label>
-                  <label for="slot-2">
-                    <input type="radio" id="slot-2" name="slot" value="2" />
-                    <span>10:00AM</span>
-                  </label>
-                  <label for="slot-3">
-                    <input type="radio" id="slot-3" name="slot" value="3" />
-                    <span>10:30AM</span>
-                  </label>
-                  <label for="slot-4">
-                    <input type="radio" id="slot-4" name="slot" value="4" />
-                    <span>11:00AM</span>
-                  </label>
-                </div>
-                <div class="day">
-                    <div class="datelabel"><strong>Saturday</strong><br />August 24</div>
-                    <label for="slot-5">
-                      <input type="radio" id="slot-5" name="slot" value="5" />
-                      <span>4:00PM</span>
-                    </label>
-                </div>
-                <div class="day">
-                    <div class="datelabel"><strong>Sunday</strong><br />August 25</div>
-                    <label for="slot-6">
-                      <input type="radio" id="slot-6" name="slot" value="6" />
-                      <span>9:00AM</span>
-                    </label>
-                </div>
+    <main>
+      <p>
+        Booking appointments with our on-campus doctor has never been easier.
+        With just a few clicks, you can book an appointment at a time that suits
+        you best. Our web application displays the available slots for the
+        doctor, and you can select the one that fits your schedule.
+      </p>
+      <p>
+        Our doctor is committed to providing you with quality medical care and
+        will be available to answer any questions you may have during your
+        appointment.
+      </p>
+      <form>
+        <div style="width: 50%">
+          <div class="days">
+            <div class="day">
+              <div class="datelabel">
+                <strong>Friday</strong><br />August 23
+              </div>
+              <label for="slot-1">
+                <input type="radio" id="slot-1" name="slot" value="1" />
+                <span>9:30AM</span>
+              </label>
+              <label for="slot-2">
+                <input type="radio" id="slot-2" name="slot" value="2" />
+                <span>10:00AM</span>
+              </label>
+              <label for="slot-3">
+                <input type="radio" id="slot-3" name="slot" value="3" />
+                <span>10:30AM</span>
+              </label>
+              <label for="slot-4">
+                <input type="radio" id="slot-4" name="slot" value="4" />
+                <span>11:00AM</span>
+              </label>
             </div>
+            <div class="day">
+              <div class="datelabel">
+                <strong>Saturday</strong><br />August 24
+              </div>
+              <label for="slot-5">
+                <input type="radio" id="slot-5" name="slot" value="5" />
+                <span>4:00PM</span>
+              </label>
+            </div>
+            <div class="day">
+              <div class="datelabel">
+                <strong>Sunday</strong><br />August 25
+              </div>
+              <label for="slot-6">
+                <input type="radio" id="slot-6" name="slot" value="6" />
+                <span>9:00AM</span>
+              </label>
+            </div>
+          </div>
         </div>
-        <br>
-        <br>
-        <div class="reason" style="margin-left:100px;padding:100px;padding-top: 0px;">
+        <br />
+        <br />
+        <div
+          class="reason"
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 100px;
+            padding-top: 0px;
+          "
+        >
           <label for="reason">Reason for Appointment:</label>
-            <textarea id="reason" name="reason" rows="4" cols="50"  required></textarea><br>
-            <input type="submit" value="Book Appointment">
+          <textarea
+            id="reason"
+            name="reason"
+            rows="10"
+            cols="50"
+            required
+          ></textarea
+          ><br />
+          <input type="submit" value="Book Appointment" />
         </div>
-        </form>
-      </main>
+      </form>
+    </main>
 
     <script>
       function toggleMenu() {

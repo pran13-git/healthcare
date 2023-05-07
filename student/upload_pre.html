@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hamburger Menu Example</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        /* background-image: linear-gradient(
+            to bottom,
+            rgba(245, 246, 252, 0.52),
+            rgba(245, 4, 4, 0.73)
+          ),
+          url(ssn.jpg); */
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        font-family: Arial, sans-serif;
+        position: relative;
+      }
+      h1,
+      h2,
+      h3 {
+        text-align: center;
+      }
+
+      /* body::before{
+        content: "";
+        background-image: url(ssn.jpg);
+        background-size: cover;
+background-repeat: no-repeat;
+        background-color: rgba(0,0,0,2.4);
+        
+      } */
+      .hamburger-menu {
+        display: inline-block;
+        cursor: pointer;
+        padding: 20px;
+        position: absolute;
+        z-index: 1;
+        margin: 0px;
+      }
+      .hamburger-menu span {
+        display: block;
+        height: 3px;
+        width: 40px;
+        background-color: #000000;
+        margin-bottom: 5px;
+        margin-top: 8px;
+        position: relative;
+        transform-origin: center;
+        transition: transform 0.3s ease-out, opacity 0.2s;
+      }
+      .hamburger-menu span:nth-child(2) {
+        width: 40px;
+        height: 3px;
+      }
+      .hamburger-menu span:nth-child(3) {
+        width: 40px;
+        height: 3px;
+      }
+      .hamburger-menu.open span:nth-child(1) {
+        transform: translateY(10px) rotate(45deg);
+      }
+      .hamburger-menu.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger-menu.open span:nth-child(3) {
+        transform: translateY(-10px) rotate(-45deg);
+      }
+      .menu {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        width: 300px;
+        height: 100%;
+        background-color: #0a4d68;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+        z-index: 0;
+        transition: left 0.3s ease-out;
+        margin-top: 0px;
+      }
+      .menu ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 100px;
+        margin-left: 10px;
+      }
+      .menu li {
+        padding: 10px;
+        border-bottom: 1px solid #ffffff;
+      }
+      .menu li:hover {
+        background-color: rgb(219, 127, 127);
+      }
+      .menu li:last-child {
+        border-bottom: none;
+      }
+      .menu a {
+        color: #ffffff;
+        text-decoration: none;
+      }
+      .menu.show {
+        left: 0;
+      }
+      .dashboard-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+      }
+
+      /* Main content styling */
+      main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 50px 20px;
+      }
+      main h2 {
+        font-size: 36px;
+        margin: 0;
+      }
+      main p {
+        font-size: 18px;
+        margin: 20px 0;
+        line-height: 1.5;
+      }
+      main a {
+        background-color: #42b8dd;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 20px;
+        display: inline-block;
+        margin-top: 20px;
+      }
+
+      /*more info styling*/
+      #hidden-info p {
+        text-align: center;
+      }
+
+      /*file upload*/
+      label {
+        background-color: rgb(24, 86, 230);
+        color: white;
+        padding: 15px;
+        font-size: 36px;
+        font-family: sans-serif;
+        border-radius: 25px;
+        cursor: pointer;
+      }
+
+      .loader {
+        border: 16px solid #f3f3f3;
+        border-top: 16px solid #4CAF50;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        animation: spin 2s linear infinite;
+        margin: 20px auto;
+      }
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      .success {
+        color: #4CAF50;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        margin: 20px;
+      }
+
+      .error {
+        color: #f44336;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hamburger-menu" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="menu" id="menu">
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="profile.html">My Profile</a></li>
+        <li><a href="stu_appt.html">Book Appointment</a></li>
+        <li><a href="upload_pre.html">Upload Prescription</a></li>
+        <li><a href="#">Upload Lab Reports</a></li>
+      </ul>
+    </div>
+
+    <div style="box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1)">
+      <h1 style="text-align: center">SSN Student Healthcare</h1>
+      <p style="text-align: center; padding-bottom: 10px">
+        Your source for quality medical care.
+      </p>
+    </div>
+
+    <main>
+      <h1>Upload Prescription</h1>
+      <form
+        style="
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 100px;
+        "
+        action="orderPage.html"
+      >
+        <label for="actual-btn">Choose File</label>
+        <input type="file" id="actual-btn" hidden />
+      </form>
+
+      <h1>Order Medicines Now</h1>
+      <button class="button" onclick="orderMedicines()">Order Medicines Now</button>
+      <div id="message"></div>
+    </main>
+
+    <script>
+      function toggleMenu() {
+        document.getElementById("menu").classList.toggle("show");
+        document.querySelector(".hamburger-menu").classList.toggle("open");
+      }
+
+      function orderMedicines() {
+        var successMessage = "Your order for the medicines has been placed by forwarding the prescription to the pharmacist.";
+        var errorMessage = "Error: Failed to place the order for the medicines. Please try again later.";
+        var messageElement = document.getElementById("message");
+        var buttonElement = document.querySelector(".button");
+
+        // show buffering symbol before simulating the order placement
+        messageElement.innerHTML = "<div class='loader'></div>";
+        messageElement.className = "";
+
+        setTimeout(function() {
+          // simulate a successful order
+          messageElement.innerHTML = successMessage;
+          messageElement.className = "success";
+
+          // simulate an error in placing the order
+          // messageElement.innerHTML = errorMessage;
+          // messageElement.className = "error";
+
+          // disable the button after clicking to prevent multiple orders
+          buttonElement.disabled = true;
+        }, 2000); // simulate 2 seconds of buffering
+      }
+    </script>
+  </body>
+</html>

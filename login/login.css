@@ -3,6 +3,10 @@ body {
     padding: 0;
     font-family: sans-serif;
     background-color: #f3f3f3;
+    background-image: url(SSN-Highway-01.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
   }
   
   .container {
@@ -25,7 +29,8 @@ body {
   }
   
   h1 {
-    margin-bottom: 30px;
+      font-size: 42px;
+      text-align: center;
   }
   
   label {

@@ -1,0 +1,204 @@
+/* General Styling */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+.container {
+    width: 60%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #ccc;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+form {
+    margin-top: 30px;
+}
+
+fieldset {
+    border: none;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="file"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+input[type="file"]:focus,
+textarea:focus {
+    border: 1px solid #007bff;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+button[type="submit"],
+button[type="reset"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover,
+button[type="reset"]:hover {
+    background-color: #0069d9;
+}
+
+/* Error Styling */
+input:invalid {
+    border-color: red;
+}
+
+input[type="text"]:invalid:focus,
+input[type="email"]:invalid:focus,
+input[type="password"]:invalid:focus,
+input[type="date"]:invalid:focus,
+input[type="file"]:invalid:focus,
+textarea:invalid:focus {
+    border-color: red;
+}
+
+.error {
+    color: red;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* Datalist Styling */
+datalist {
+    display: none;
+}
+
+input[list]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
+/* Language Checkbox Styling */
+.checkbox-group {
+    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.checkbox-group label {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-group input[type="checkbox"]+label:before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #fff;
+    vertical-align: middle;
+}
+
+.checkbox-group input[type="checkbox"]:checked+label:before {
+    content: "\2714";
+    color: #007bff;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Other Language Textbox Styling */
+#otherLanguage {
+    display: none;
+    margin-top: 5px;
+}
+
+/* Photo Styling */
+.photo-container {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.photo-container label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.photo-preview {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    margin-bottom: 5px;
+}
+
+.photo-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.photo-input:focus+.photo-preview {
+    border: 1px solid #007bff;
+}
+
+/* Success Message Styling */
+.success-message {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: green;
+    margin-top: 30px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+}

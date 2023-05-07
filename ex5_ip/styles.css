@@ -1,0 +1,102 @@
+body{
+    text-align: center;
+    background-image:linear-gradient(to right, #8360c3, #2ebf91);
+    font-family: 'Bellota', cursive;
+    overflow: hidden;
+}
+
+.informationForm{
+    margin: auto;
+    width: 500px;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 10px;
+    padding: 10px;
+
+    opacity: 0;
+    transform: translateY(100px);
+    animation: entry 1s ease-out 0.2s forwards;
+}
+
+input:not([type="checkbox"],[type="date"],[type="file"],[type="radio"]){
+    width: 95%;
+    height: 25px;
+    margin: 10px auto;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 10px;
+    border: 2px  solid rgba(255,255,255,1);
+} 
+
+input:not([type="checkbox"],[type="date"],[type="file"],[type="radio"]):focus-visible{
+    border: none;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+    border: 2px  solid rgba(255,255,255,1);
+}
+
+input[type="radio"]{
+    display: inline-block;
+}
+#salutation{
+    margin-bottom: 10px;
+}
+
+#dob,#photo{
+    text-align: left;
+    margin: 8px auto;
+}
+
+#languageDIV{
+    text-align: left;
+}
+
+.language-ctn{
+    text-align: left;
+}
+
+#language > h4{
+    margin: 5px auto;
+}
+
+button{
+    font-size: 15px;    
+    border-radius: 15px;
+    margin: 15px 10px;
+    padding: 5px 20px;    
+}
+
+#submit{
+
+    background-color: greenyellow;
+    border: 2px solid greenyellow;
+}
+
+#clear{
+    color: white;
+    background: red;
+    border: 2px solid red;
+}
+
+@keyframes entry {
+    100%{
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.wrong{
+    border: 2px solid red !important;
+}
+
+.right{
+    border: 2px solid green !important;
+}
+
+p{
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+    text-align: left;
+}

@@ -1,0 +1,11 @@
+<web-app>
+<servlet>
+<servlet-name>loginverify</servlet-name>
+<servlet-class>loginverify</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>loginverify</servlet-name>
+<url-pattern>/loginverify</url-pattern>
+</servlet-mapping>
+
+</web-app>

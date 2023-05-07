@@ -21,6 +21,11 @@
         font-family: Arial, sans-serif;
         position: relative;
       }
+      h1,
+      h2,
+      h3 {
+        text-align: center;
+      }
 
       /* body::before{
         content: "";
@@ -83,6 +88,7 @@ background-repeat: no-repeat;
         padding: 0;
         margin-top: 100px;
         margin-left: 10px;
+        font-size:22px;
       }
       .menu li {
         padding: 10px;
@@ -100,81 +106,6 @@ background-repeat: no-repeat;
       }
       .menu.show {
         left: 0;
-      }
-      .dashboard-container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #fff;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-        border-radius: 4px;
-      }
-
-      /* Style the dashboard tabs */
-      .dashboard-tabs {
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom: 20px;
-        justify-content: center;
-      }
-
-      .dashboard-tab {
-        padding: 10px 20px;
-        margin-right: 10px;
-        background-color: #eee;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-
-      .dashboard-tab.active {
-        background-color: #007bff;
-        color: #fff;
-      }
-
-      /* Style the dashboard content */
-      .dashboard-content {
-        padding: 20px;
-        background-color: #fff;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-        border-radius: 4px;
-      }
-
-      /* Style the form elements */
-      .dashboard-form {
-        display: flex;
-        flex-direction: column;
-        max-width: 400px;
-        margin: 0 auto;
-      }
-
-      .dashboard-form label {
-        margin-bottom: 10px;
-        font-weight: bold;
-      }
-
-      .dashboard-form input[type="text"],
-      .dashboard-form input[type="email"],
-      .dashboard-form input[type="password"],
-      .dashboard-form select,
-      .dashboard-form textarea {
-        padding: 10px;
-        margin-bottom: 20px;
-        border: none;
-        border-radius: 4px;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-      }
-
-      .dashboard-form input[type="submit"] {
-        padding: 10px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-
-      .dashboard-form input[type="submit"]:hover {
-        background-color: #0069d9;
       }
 
       /* Main content styling */
@@ -202,6 +133,11 @@ background-repeat: no-repeat;
         display: inline-block;
         margin-top: 20px;
       }
+
+      /*more info styling*/
+      #hidden-info p {
+        text-align: center;
+      }
     </style>
   </head>
   <body>
@@ -215,7 +151,8 @@ background-repeat: no-repeat;
         <li><a href="home.html">Home</a></li>
         <li><a href="profile.html">My Profile</a></li>
         <li><a href="stu_appt.html">Book Appointment</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="upload_pre.html">Upload Prescription</a></li>
+        <li><a href="#">Upload Lab Reports</a></li>
       </ul>
     </div>
 
@@ -226,23 +163,58 @@ background-repeat: no-repeat;
       </p>
     </div>
 
- 
-      <main>
-          <h2>Welcome to our website!</h2>
-          <p>
-            We are committed to providing our patients with the highest quality
-            medical care. Our team of experienced healthcare professionals is
-            dedicated to helping you and your family stay healthy and happy. From
-            routine check-ups to complex medical procedures, we offer a wide range
-            of services to meet your healthcare needs.
-          </p>
-          <a href="#">Learn more</a>
-      </main>
+    <main>
+      <h2>
+        Healthy mind, healthy body, healthy you. Welcome to our comprehensive
+        healthcare platform!
+      </h2>
+      <p>
+        Welcome to the comprehensive healthcare platform designed for the
+        hostellers of our college campus. Our web application is designed to
+        make healthcare more accessible, convenient and improve the quality of
+        medical care for our students. With this platform, you can book
+        appointments with our on-campus doctor, upload prescriptions, order
+        medicines, and keep track of your medical records. We understand that
+        your health is of utmost importance, and we are committed to providing
+        you with the support you need to thrive both physically and
+        academically.
+      </p>
+
+      <p>
+        Physical health is the bulwark of a keen mind. To ensure that our
+        students have access to medicines and medical advice, a well-stocked
+        dispensary is provided in the Bio-Medical department and our campus
+        doctor is on call to respond to our students medical needs
+      </p>
+      <a style="cursor: pointer" id="show-more-btn" onclick="readMore()"
+        >Learn more</a
+      >
+      <div id="hidden-info" style="display: none">
+        <p>
+          Our full-time campus doctor, who also serves as an Assistant
+          Professor:
+        </p>
+        <h1>Dr. Sachin Gaurishankar Sarate</h1>
+        <h3>M.B.B.S., M.Tech.</h3>
+      </div>
+    </main>
 
     <script>
       function toggleMenu() {
         document.getElementById("menu").classList.toggle("show");
         document.querySelector(".hamburger-menu").classList.toggle("open");
+      }
+      function readMore() {
+        var hiddenInfo = document.getElementById("hidden-info");
+        var showMoreBtn = document.getElementById("show-more-btn");
+
+        if (hiddenInfo.style.display === "none") {
+          hiddenInfo.style.display = "block";
+          showMoreBtn.innerHTML = "Show Less";
+        } else {
+          hiddenInfo.style.display = "none";
+          showMoreBtn.innerHTML = "Show More";
+        }
       }
     </script>
   </body>

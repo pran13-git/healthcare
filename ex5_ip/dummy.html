@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="newstyle.css">
+    <style>
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body style="margin-left: 500px;margin-right: 500px; padding: 100px;">
+    <h1>Registration Form</h1>
+    <form id="regForm" method="POST">
+        <label>Salutations:</label><br>
+        <input type="radio" name="salutation" value="Mr" required>Mr
+        <input type="radio" name="salutation" value="Mrs">Mrs
+        <input type="radio" name="salutation" value="Miss">Miss
+        <input type="radio" name="salutation" value="Dr">Dr
+        <span id="salutationError" class="error"></span><br><br>
+
+        <label>Participant Name:</label><br>
+        <input type="text" id="name" name="participantName" required autocomplete="off">
+        <span id="participantNameError" class="error"></span><br><br>
+
+        <label>Username:</label><br>
+        <input type="text" id="username" name="username" list="usernames" required autocomplete="off">
+        <datalist id="usernames">
+            <option value="happyredbutterfly"></option>
+            <option value="johnvicks"></option>
+            <option value="alwaysonline"></option>
+            <option value="soulhunter"></option>
+        </datalist>
+        <span id="usernameError" class="error"></span><br><br>
+
+        <label>Password:</label><br>
+        <input type="password" id="password" name="password" required autocomplete="off">
+        <span id="passwordError" class="error"></span><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" id="email" name="email" required autocomplete="off">
+        <span id="emailError" class="error"></span><br><br>
+
+        <label>Date of Birth:</label><br>
+        <input type="date" id="dob" name="dob" required min="1900-01-01">
+        <span id="dobError" class="error"></span><br><br>
+
+        <label>Photo:</label><br>
+        <input type="file" id="photo" name="photo" accept="image/*" required>
+        <span id="photoError" class="error"></span><br><br>
+
+        <label>Languages Known:</label><br>
+        <input type="checkbox" name="languages[]" value="English" required>English
+        <input type="checkbox" name="languages[]" value="Tamil">Tamil
+        <input type="checkbox" name="languages[]" value="French">French
+        <input type="checkbox" name="languages[]" value="Others">Others
+        <input type="text" name="otherLanguage" placeholder="Specify Other Language">
+        <span id="languagesError" class="error"></span><br><br>
+
+        <label>Additional Expertise:</label><br>
+        <textarea name="expertise" rows="4" cols="50"></textarea>
+        <span id="expertiseError" class="error"></span><br><br>
+
+        <input type="submit" name="register" value="Register">
+        <input type="reset" name="clear" value="Clear">
+    </form>
+
+    <script>
+        document.getElementById("regForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            if (validateForm()) {
+                alert("Details have been submitted successfully!");
+            }
+        });
+
+        function validateForm() {
+            var valid = true;
+            var salutation = document.getElementsByName("salutation");
+            var participantName = document.getElementsByName("participantName")[0];
+            var username = document.getElementsByName("username")[0];
+            var password = document.getElementsByName("password")[0];
+            var email = document.getElementsByName("email")[0];
+            var dob = document.getElementsByName("dob")[0];
+            var photo = document.getElementsByName("photo")[0];
+            var languages = document.getElementsByName("languages[]");
+            var otherLanguage = document.getElementsByName("otherLanguage")[0];
+            var expertise = document.getElementsByName("expertise")[0];
+
+            // Validate Salutation
+            if (!salutation[0].checked && !salutation[1].checked && !salutation[2].checked && !salutation[3].checked) {
+                document.getElementById("salutationError").innerHTML = "Please select a salutation";
+                valid = false;
+            } else {
+                document.getElementById("salutationError").innerHTML = "";
+            }
+
+            // Validate Participant Name
+            if (!/^[a-zA-Z ]+$/.test(participantName.value)) {
+                document.getElementById("participantNameError").innerHTML = "Please enter a valid participant name";
+                valid = false;
+            } else {
+                document.getElementById("participantNameError").innerHTML = "";
+            }
+
+            // Validate Username
+            if (!/^[a-zA-Z]+$/.test(username.value)) {
+                document.getElementById("usernameError").innerHTML = "Please enter a valid username";
+                valid = false;
+            } else {
+                document.getElementById("usernameError").innerHTML = "";
+            }
+
+            // Validate Password
+            if (!/(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+}{"':;?/>.<,]).{8,}/.test(password.value)) {
+                document.getElementById("passwordError").innerHTML = "Please enter a valid password";
+                valid = false;
+            } else {
+                document.getElementById("passwordError").innerHTML = "";
+            }
+
+            // Validate Email
+            if (!/^\S+@\S+\.\S+$/.test(email.value)) {
+                document.getElementById("emailError").innerHTML = "Please enter a valid email address";
+                valid = false;
+            } else {
+                document.getElementById("emailError").innerHTML = "";
+            }
+
+            // Validate Date of Birth
+            var dobDate = new Date(dob.value);
+            var age = (new Date(Date.now() - dobDate.getTime())).getFullYear() - 1970;
+            if (age >= 35 || age < 18) {
+                document.getElementById("dobError").innerHTML = "Please enter a valid date of birth";
+                valid = false;
+            } else {
+                document.getElementById("dobError").innerHTML = "";
+            }
+
+            // Validate Photo
+            if (photo.value == "") {
+                document.getElementById("photoError").innerHTML = "Please upload a photo";
+                valid = false;
+            } else {
+                document.getElementById("photoError").innerHTML = "";
+            }
+
+            // Validate Languages Known
+            var languageCount = 0;
+            for (var i = 0; i < languages.length; i++) {
+                if (languages[i].checked) {
+                    languageCount++;
+                }
+            }
+            if (languageCount < 2) {
+                document.getElementById("languagesError").innerHTML = "Please select at least 2 languages";
+                valid = false;
+            } else if (document.getElementById("otherLanguageCheckbox").checked && otherLanguage.value == "") {
+                document.getElementById("languagesError").innerHTML = "Please specify the other language";
+                valid = false;
+            } else {
+                document.getElementById("languagesError").innerHTML = "";
+            }
+            // Validate Additional Expertise
+            if (expertise.value == "") {
+                document.getElementById("expertiseError").innerHTML = "Please enter your additional expertise";
+                valid = false;
+            } else {
+                document.getElementById("expertiseError").innerHTML = "";
+            }
+
+            return valid;
+        }
+
+        function clearForm() {
+            document.getElementById("regForm").reset();
+            document.getElementsByName("salutation")[0].focus();
+        }
+    </script>
+</body>
+
+</html>

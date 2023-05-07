@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -23,7 +20,7 @@
         background-position: center;
         font-family: Arial, sans-serif;
         position: relative;
-        overflow:auto;
+        overflow: auto;
       }
 
       /* body::before{
@@ -104,81 +101,6 @@ background-repeat: no-repeat;
       }
       .menu.show {
         left: 0;
-      }
-      .dashboard-container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-        background-color: #fff;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-        border-radius: 4px;
-      }
-
-      /* Style the dashboard tabs */
-      .dashboard-tabs {
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom: 20px;
-        justify-content: center;
-      }
-
-      .dashboard-tab {
-        padding: 10px 20px;
-        margin-right: 10px;
-        background-color: #eee;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-
-      .dashboard-tab.active {
-        background-color: #007bff;
-        color: #fff;
-      }
-
-      /* Style the dashboard content */
-      .dashboard-content {
-        padding: 20px;
-        background-color: #fff;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-        border-radius: 4px;
-      }
-
-      /* Style the form elements */
-      .dashboard-form {
-        display: flex;
-        flex-direction: column;
-        max-width: 400px;
-        margin: 0 auto;
-      }
-
-      .dashboard-form label {
-        margin-bottom: 10px;
-        font-weight: bold;
-      }
-
-      .dashboard-form input[type="text"],
-      .dashboard-form input[type="email"],
-      .dashboard-form input[type="password"],
-      .dashboard-form select,
-      .dashboard-form textarea {
-        padding: 10px;
-        margin-bottom: 20px;
-        border: none;
-        border-radius: 4px;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-      }
-
-      .dashboard-form input[type="submit"] {
-        padding: 10px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-
-      .dashboard-form input[type="submit"]:hover {
-        background-color: #0069d9;
       }
 
       /* Main content styling */
@@ -262,12 +184,11 @@ background-repeat: no-repeat;
         display: none;
       }
 
-      .hidden{
+      .hidden {
         display: none;
       }
     </style>
     <script src="edit_details.js"></script>
-
   </head>
   <body>
     <div class="hamburger-menu" onclick="toggleMenu()">
@@ -280,7 +201,8 @@ background-repeat: no-repeat;
         <li><a href="home.html">Home</a></li>
         <li><a href="profile.html">My Profile</a></li>
         <li><a href="stu_appt.html">Book Appointment</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="upload_pre.html">Upload Prescription</a></li>
+        <li><a href="#">Upload Lab Reports</a></li>
       </ul>
     </div>
 
@@ -290,61 +212,52 @@ background-repeat: no-repeat;
         Your source for quality medical care.
       </p>
     </div>
-      <main>
-        <div class="container mt-5">
-          <h1 class="text-center mb-5" style="text-align: center;font-size: 28px;padding:20px;margin-left: 300px;width: 300px;justify-content: center;">My Profile</h1>
-          <<form style="margin-left: 180px;">
-            <div class="row mb-3">
-              <label for="name">Name:</label>
-              <input
-                type="text"
-                id="name"
-                value="John Doe"
-                disabled
-              />
-            </div>
-            <div class="row mb-3">
-              <label for="email">Email:</label>
-              <input
-                type="email"
-                id="email"
-                value="johndoe@example.com"
-                disabled
-              />
-            </div>
-            <div class="row mb-3">
-              <label for="phone">Phone:</label>
-              <input
-                type="tel"
-                id="phone"
-                value="123-456-7890"
-                disabled
-              />
-            </div>
-            <div class="row mb-3">
-              <label for="allergies">Allergies:</label>
-              <input
-                type="text"
-                id="allergies"
-                value="None"
-                disabled
-              />
-            </div>
-            <div class="row mb-3">
-              <label for="medication">Ongoing Medication:</label>
-              <input
-                type="text"
-                id="medication"
-                value="None"
-                disabled
-              />
-            </div>
-            <button type="button" class="edit" id="editBtn">Edit</button>
-            <button type="button" class="save" id="saveBtn">Save</button>
-          </form>
-        </div>
-
-      </main>
+    <main>
+      <div class="container mt-5">
+        <h1
+          class="text-center mb-5"
+          style="
+            text-align: center;
+            font-size: 28px;
+            padding: 20px;
+            margin-left: 300px;
+            width: 300px;
+            justify-content: center;
+          "
+        >
+          My Profile
+        </h1>
+        <form style="margin-left: 180px">
+          <div class="row mb-3">
+            <label for="name">Name:</label>
+            <input type="text" id="name" value="John Doe" disabled />
+          </div>
+          <div class="row mb-3">
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              value="johndoe@example.com"
+              disabled
+            />
+          </div>
+          <div class="row mb-3">
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" value="123-456-7890" disabled />
+          </div>
+          <div class="row mb-3">
+            <label for="allergies">Allergies:</label>
+            <input type="text" id="allergies" value="None" disabled />
+          </div>
+          <div class="row mb-3">
+            <label for="medication">Ongoing Medication:</label>
+            <input type="text" id="medication" value="None" disabled />
+          </div>
+          <button type="button" class="edit" id="editBtn">Edit</button>
+          <button type="button" class="save" id="saveBtn">Save</button>
+        </form>
+      </div>
+    </main>
 
     <script>
       function toggleMenu() {
