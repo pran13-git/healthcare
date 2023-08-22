@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Healthcare Login</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form id="login-form" action="http://localhost:8080/doctor/loginverify" method="get">
+      
+        <h1>SSN Healthcare Login</h1>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+        <label for="usertype">I'm a</label>
+        <select id="usertype" name="usertype">
+          <option value="student">Student</option>
+          <option value="doctor">Doctor</option>
+          <!-- <option value="pharmacist">Pharmacist</option> -->
+        </select>
+        <input type="submit" value="Login" />
+      </form>
+    </div>
+  </body>
+</html>

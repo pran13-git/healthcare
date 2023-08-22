@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student Homepage</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="student.css" />
+  </head>
+  <body>
+    <div class="hamburger-menu" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="menu" id="menu">
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="profile.html">My Profile</a></li>
+        <li><a href="stu_appt_new.html">Book Appointment</a></li>
+        <li><a href="upload_pre.html">Upload Prescription</a></li>
+        <li style="margin-top: 400px">
+          <form action="login.html" method="post">
+            <input ahref type="submit" value="Logout"/>
+          </form>
+        </li>
+      </ul>
+    </div>
+
+    <div style="box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1)">
+      <h1 style="text-align: center">SSN Student Healthcare</h1>
+      <p style="text-align: center; padding-bottom: 10px">
+        Your source for quality medical care.
+      </p>
+    </div>
+
+    <main>
+      <h2>
+        Healthy mind, healthy body, healthy you. Welcome to our comprehensive
+        healthcare platform!
+      </h2>
+      <p>
+        Welcome to the comprehensive healthcare platform designed for the
+        hostellers of our college campus. Our web application is designed to
+        make healthcare more accessible, convenient and improve the quality of
+        medical care for our students. With this platform, you can book
+        appointments with our on-campus doctor, upload prescriptions, order
+        medicines, and keep track of your medical records. We understand that
+        your health is of utmost importance, and we are committed to providing
+        you with the support you need to thrive both physically and
+        academically.
+      </p>
+
+      <p>
+        Physical health is the bulwark of a keen mind. To ensure that our
+        students have access to medicines and medical advice, a well-stocked
+        dispensary is provided in the Bio-Medical department and our campus
+        doctor is on call to respond to our students medical needs
+      </p>
+      <a style="cursor: pointer" id="show-more-btn" onclick="readMore()"
+        >Learn more</a
+      >
+      <div id="hidden-info" style="display: none">
+        <p>
+          Our full-time campus doctor, who also serves as an Assistant
+          Professor:
+        </p>
+        <h1>Dr. Sachin Gaurishankar Sarate</h1>
+        <h3>M.B.B.S., M.Tech.</h3>
+      </div>
+    </main>
+
+    <script>
+      function toggleMenu() {
+        document.getElementById("menu").classList.toggle("show");
+        document.querySelector(".hamburger-menu").classList.toggle("open");
+      }
+      function readMore() {
+        var hiddenInfo = document.getElementById("hidden-info");
+        var showMoreBtn = document.getElementById("show-more-btn");
+
+        if (hiddenInfo.style.display === "none") {
+          hiddenInfo.style.display = "block";
+          showMoreBtn.innerHTML = "Show Less";
+        } else {
+          hiddenInfo.style.display = "none";
+          showMoreBtn.innerHTML = "Show More";
+        }
+      }
+    </script>
+  </body>
+</html>
